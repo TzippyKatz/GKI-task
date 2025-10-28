@@ -37,8 +37,22 @@ export const useCartStore = create<cartType>()(
             },
 
             removeFromCart: (id) => {
-                
-            }
-        })
+                set({ products: get().products.filter(p => p.id !== id) })
+            },
+
+            updateQuantity: (id, quantity) =>
+                set({
+                    products: get().products.map((p) =>
+                        p.id === id ? { ...p, quantity } : p
+                    )
+                }),
+
+            clearCart: () => set({
+                products: []
+            }),
+
+            total: () =>
+                get().products.reduce((total, p) => total + p.price * p.quantity, 0),
+        }),
     )
 )
