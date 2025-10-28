@@ -54,5 +54,11 @@ export const useCartStore = create<cartType>()(
             total: () =>
                 get().products.reduce((total, p) => total + p.price * p.quantity, 0),
         }),
+
+        {
+            name: 'cart-storage',
+            // getStorage: () => localStorage,
+            // getStorage: () => (typeof window !== 'undefined' ? localStorage : undefined),
+        }
     )
 )

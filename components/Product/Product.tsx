@@ -1,6 +1,8 @@
+import { useCartStore } from '../../app/store/useCartStore';
 import styles from './Product.module.css';
 
 interface productProps {
+    id: number,
     image: string,
     title: string,
     description: string,
@@ -8,9 +10,11 @@ interface productProps {
     price: number
 }
 
-export default function Product({ image, title, description, category, price }: ProductProps) {
-    const addToCart = () => {
-        //use in zustand to add cart.
+export default function Product({ id, image, title, description, category, price }: productProps) {
+    const addToCart = useCartStore((state) => state.addToCart);
+
+    const handleAddToCart = () => {
+        addToCart({ id, title, price, image });
     }
 
     return (
@@ -22,7 +26,7 @@ export default function Product({ image, title, description, category, price }: 
                 <h3 className={styles.productTitle}>{title}</h3>
                 <h3 className={styles.productCategory}>{category}</h3>
                 <span className={styles.price}>{price}$</span>
-                <button onClick={addToCart}>🛒ADD TO CART</button>
+                <button onClick={handleAddToCart}>🛒ADD TO CART</button>
             </div>
         </div>
     )

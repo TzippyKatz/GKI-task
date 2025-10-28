@@ -41,6 +41,7 @@ export default function ProductList() {
                 (
                     <Product
                         key={p.id}
+                        id={p.id}
                         image={p.image}
                         title={p.title}
                         description={p.description}

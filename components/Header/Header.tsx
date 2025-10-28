@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import styles from './Header.module.css';
-import useCartCountStore from '../../app/store/useCartCountStore';
+import { useCartStore } from '../../app/store/useCartStore';
 
 const categories = {
     mens: "mens clothing",
@@ -11,7 +11,8 @@ const categories = {
     electronics: "electronics"
 }
 export default function Header() {
-    const count = useCartCountStore((state) => state.count);
+    const products = useCartStore(state => state.products);
+    const totalCount = products.reduce((acc, p) => acc + p.quantity, 0);
 
     return (
         <header className={styles.header}>
@@ -26,7 +27,7 @@ export default function Header() {
                 <Link href="/category/electronics">Electronics</Link>
                 <Link href="/contact-us">Contact Us</Link>
             </nav>
-            <div className={styles.cart}>Cart({count})</div>
+            <div className={styles.cart}>Cart({totalCount})</div>
         </header>
     );
 }
