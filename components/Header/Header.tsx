@@ -4,6 +4,8 @@ import Link from 'next/link';
 import styles from './Header.module.css';
 import { useCartStore } from '../../app/store/useCartStore';
 import Image from "next/image";
+import { useState } from "react";
+import CartModal from '../CartModal/CartModal';
 import logo from "../../media/logo.png";
 
 const categories = {
@@ -15,6 +17,8 @@ const categories = {
 export default function Header() {
     const products = useCartStore(state => state.products);
     const totalCount = products.reduce((acc, p) => acc + p.quantity, 0);
+
+    const [isCartOpen, setCartOpen] = useState(false);
 
     return (
         <header className={styles.header}>
@@ -29,7 +33,17 @@ export default function Header() {
                 <Link href="/category/electronics">Electronics</Link>
                 <Link href="/contact-us">Contact Us</Link>
             </nav>
-            <div className={styles.cart}>Cart({totalCount})</div>
+
+            {/* כפתור סל הקניות */}
+            <div className={styles.cart} onClick={() => setCartOpen(true)}>
+                Cart({totalCount})
+            </div>
+
+            {/* מודאל סל הקניות */}
+            <CartModal
+                isOpen={isCartOpen}
+                onClose={() => setCartOpen(false)}
+            />
         </header>
     );
 }

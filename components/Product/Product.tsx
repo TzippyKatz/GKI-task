@@ -31,9 +31,9 @@ export default function Product({ id, image, title, description, category, price
                     <h3 className={styles.productTitle}>{title}</h3>
                     <h3 className={styles.productCategory}>{category}</h3>
                     <span className={styles.price}>{price}$</span>
-                    <button onClick={handleAddToCart}>🛒ADD TO CART</button>
                 </div>
             </Link>
+            <button onClick={handleAddToCart}>🛒ADD TO CART</button>
         </div >
     )
 }
