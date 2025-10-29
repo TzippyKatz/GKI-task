@@ -17,7 +17,7 @@ export default function Header() {
     return (
         <header className={styles.header}>
             <div className={styles.logo}>
-                <img src="https://lh3.googleusercontent.com/chat_attachment/AP1Ws4uFVdGEaeJuo-x3f73zmna5Zt_bDSDFy0k-fmQ7XNmUPTLkuLrKMCI0nWpd1xUWyVXIqFRR9lI3gLKndRP0FtgDrm-4nrwa_NOAtLSlll-SX4EPUh4qb0GNvWLimvFjypvfYUPKTbVBslsPHackkvrArB-Ze13tKkzqjKJVqvIB_DzUludcAkfy2s_KOHe2cmBnf9oN-oB4_oIsgqDoo8zpVzgTQOEwXUtY7Zc08TXX0yPQ76huEy6vZmuFjjnr-vfFDy1Tmh-EtqzftVbTMqOxbn38tdJqhlOUlNL30Nx-LR_FwGoK_fGF6_KHg1tq1aE=w512" alt="Hadasim - fashion logo"></img>
+                <img src="https://lh3.googleusercontent.com/chat_attachment/AP1Ws4uFVdGEaeJuo-x3f73zmna5Zt_bDSDFy0k-fmQ7XNmUPTLkuLrKMCI0nWpd1xUWyVXIqFRR9lI3gLKndRP0FtgDrm-4nrwa_NOAtLSlll-SX4EPUh4qb0GNvWLimvFjypvfYUPKTbVBslsPHackkvrArB-Ze13tKkzqjKJVqvIB_DzUludcAkfy2s_KOHe2cmBnf9oN-oB4_oIsgqDoo8zpVzgTQOEwXUtY7Zc08TXX0yPQ76huEy6vZmuFjjnr-vfFDy1Tmh-EtqzftVbTMqOxbn38tdJqhlOUlNL30Nx-LR_FwGoK_fGF6_KHg1tq1aE=w512" alt="M & H - fashion logo"></img>
             </div>
             <nav className={styles.nav}>
                 <Link href="/">Home</Link>
