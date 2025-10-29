@@ -25,16 +25,20 @@ export default function CategoryPage() {
     const params = useParams();
     // const categoryKey = params.name;
     // from time to time params.name is string[] and not string, so the solution
+    type CategoryKey = keyof typeof categoryMapping;
     const categoryKey = Array.isArray(params.name) ? params.name[0] : params.name;
+    if (!categoryKey || !(categoryKey in categoryMapping)) return <p>Unknown category</p>;
+    const apiCategoryName = categoryMapping[categoryKey as CategoryKey];
+
 
     const [products, setProducts] = useState<ProductType[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const apiCategoryName = categoryMapping[categoryKey];
-        if (!apiCategoryName) return;
+        const apiCategoryNameNav = categoryMapping[categoryKey];
+        if (!apiCategoryNameNav) return;
 
-        fetch(`https://fakestoreapi.com/products/category/${encodeURIComponent(apiCategoryName)}`)
+        fetch(`https://fakestoreapi.com/products/category/${encodeURIComponent(apiCategoryNameNav)}`)
             .then(res => res.json())
             .then((data) => {
                 console.log(`Category: ${categoryKey}`);
