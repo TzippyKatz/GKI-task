@@ -1,5 +1,7 @@
+import Link from 'next/link';
 import { useCartStore } from '../../app/store/useCartStore';
 import styles from './Product.module.css';
+import { usePathname } from 'next/navigation';
 
 interface productProps {
     id: number,
@@ -12,6 +14,7 @@ interface productProps {
 
 export default function Product({ id, image, title, description, category, price }: productProps) {
     const addToCart = useCartStore((state) => state.addToCart);
+    const pathName = usePathname();
 
     const handleAddToCart = () => {
         addToCart({ id, title, price, image });
@@ -27,6 +30,9 @@ export default function Product({ id, image, title, description, category, price
                 <h3 className={styles.productCategory}>{category}</h3>
                 <span className={styles.price}>{price}$</span>
                 <button onClick={handleAddToCart}>🛒ADD TO CART</button>
+                <Link href={`/products/${id}?from=${pathName}`}>
+                    <button>View Details</button>
+                </Link>
             </div>
         </div>
     )
