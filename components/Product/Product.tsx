@@ -22,18 +22,18 @@ export default function Product({ id, image, title, description, category, price
 
     return (
         <div className={styles.product}>
-            <div className={styles.productImage}>
-                <img src={image} alt={title}></img>
-            </div>
-            <div className={styles.productContain}>
-                <h3 className={styles.productTitle}>{title}</h3>
-                <h3 className={styles.productCategory}>{category}</h3>
-                <span className={styles.price}>{price}$</span>
-                <button onClick={handleAddToCart}>🛒ADD TO CART</button>
-                <Link href={`/products/${id}?from=${pathName}`}>
-                    <button>View Details</button>
-                </Link>
-            </div>
-        </div>
+            <Link href={`/products/${id}?from=${pathName}`}>
+
+                <div className={styles.productImage}>
+                    <img src={image} alt={title}></img>
+                </div>
+                <div className={styles.productContain}>
+                    <h3 className={styles.productTitle}>{title}</h3>
+                    <h3 className={styles.productCategory}>{category}</h3>
+                    <span className={styles.price}>{price}$</span>
+                    <button onClick={handleAddToCart}>🛒ADD TO CART</button>
+                </div>
+            </Link>
+        </div >
     )
 }
