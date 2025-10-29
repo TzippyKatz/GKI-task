@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react"
 import Product from "../Product/Product";
 import styles from './ProductList.module.css';
+import Image from "next/image";
+import logo from "../../media/logo2.jpg";
 
 interface ProductType {
     id: number;
@@ -35,6 +37,9 @@ export default function ProductList() {
 
     return (
         <div className={styles.container}>
+            <div className={styles.logo}>
+                <Image src={logo} alt="M&H - Milk & Honey Distillery."/>
+            </div>
             <h4>LATEST PRODUCTS</h4>
             <div className={styles.productsGrid}>
                 {products.map((p) =>

@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import styles from './Header.module.css';
 import { useCartStore } from '../../app/store/useCartStore';
+import Image from "next/image";
+import logo from "../../media/logo.png";
 
 const categories = {
     mens: "mens clothing",
@@ -17,7 +19,7 @@ export default function Header() {
     return (
         <header className={styles.header}>
             <div className={styles.logo}>
-                <img src="https://lh3.googleusercontent.com/chat_attachment/AP1Ws4uFVdGEaeJuo-x3f73zmna5Zt_bDSDFy0k-fmQ7XNmUPTLkuLrKMCI0nWpd1xUWyVXIqFRR9lI3gLKndRP0FtgDrm-4nrwa_NOAtLSlll-SX4EPUh4qb0GNvWLimvFjypvfYUPKTbVBslsPHackkvrArB-Ze13tKkzqjKJVqvIB_DzUludcAkfy2s_KOHe2cmBnf9oN-oB4_oIsgqDoo8zpVzgTQOEwXUtY7Zc08TXX0yPQ76huEy6vZmuFjjnr-vfFDy1Tmh-EtqzftVbTMqOxbn38tdJqhlOUlNL30Nx-LR_FwGoK_fGF6_KHg1tq1aE=w512" alt="M & H - fashion logo"></img>
+                <Image src={logo} alt="M&H - Milk & Honey Distillery." width={50} height={50} />
             </div>
             <nav className={styles.nav}>
                 <Link href="/">Home</Link>
