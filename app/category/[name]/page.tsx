@@ -23,7 +23,10 @@ const categoryMapping: Record<string, string> = {
 
 export default function CategoryPage() {
     const params = useParams();
-    const categoryKey = params.name;
+    // const categoryKey = params.name;
+    // from time to time name is string[] and not string, so the solution
+    const categoryKey = Array.isArray(name) ? name[0] : name;
+
 
     const [products, setProducts] = useState<ProductType[]>([]);
     const [loading, setLoading] = useState(true);
