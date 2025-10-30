@@ -6,6 +6,8 @@ import Image from "next/image";
 
 export default function CheckoutPage() {
   const products = useCartStore((state) => state.products);
+  const updateQuantity = useCartStore((state) => state.updateQuantity);
+
   const totalPrice = products.reduce(
     (acc, p) => acc + p.price * p.quantity,
     0
@@ -14,14 +16,16 @@ export default function CheckoutPage() {
   if (products.length === 0) {
     return (
       <div className={styles.empty}>
-        <h2>עגלת הקניות ריקה</h2>
+        <h2>cart is empty.</h2>
       </div>
     );
   }
 
   return (
     <div className={styles.checkout}>
-      <h1 className={styles.title}>סיכום הזמנה</h1>
+      <h1 className={styles.title}>
+        Order <span>Summary</span>
+      </h1>
 
       <div className={styles.items}>
         {products.map((product) => (
@@ -35,19 +39,21 @@ export default function CheckoutPage() {
             />
             <div className={styles.info}>
               <h2>{product.title}</h2>
-              <p>כמות: {product.quantity}</p>
-              <p>מחיר ליחידה: {product.price} ₪</p>
-              <p className={styles.subtotal}>
-                סה״כ: {(product.price * product.quantity).toFixed(2)} ₪
-              </p>
+              <button onClick={() => updateQuantity(product.id, product.quantity - 1)}>
+                -
+              </button>
+              <span>{product.quantity}</span>
+              <button onClick={() => updateQuantity(product.id, product.quantity + 1)}>
+                +
+              </button>
             </div>
           </div>
         ))}
       </div>
 
       <div className={styles.summary}>
-        <h2>סכום לתשלום: {totalPrice.toFixed(2)} ₪</h2>
-        <button className={styles.orderButton}>סיים הזמנה</button>
+        <h2>TOTAL: {totalPrice.toFixed(2)} $</h2>
+        <button className={styles.orderButton}>COMPLETE ORDER</button>
       </div>
     </div>
   );

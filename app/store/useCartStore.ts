@@ -43,7 +43,7 @@ export const useCartStore = create<cartType>()(
             updateQuantity: (id, quantity) =>
                 set({
                     products: get().products.map((p) =>
-                        p.id === id ? { ...p, quantity } : p
+                        p.id === id ? { ...p, quantity: Math.max(0, quantity) } : p
                     )
                 }),
 

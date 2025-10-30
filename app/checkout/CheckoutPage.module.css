@@ -1,63 +1,90 @@
-.checkoutContainer {
-  max-width: 700px;
-  margin: 100px auto;
+.checkout {
+  max-width: 900px;
+  margin: 80px auto;
   padding: 2rem;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  color: #000;
+  font-family: "Roboto", sans-serif;
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: 600;
-  text-align: center;
+  text-align: left;
+  font-size: 3rem;
+  font-weight: 900;
   margin-bottom: 2rem;
 }
 
-.empty {
-  text-align: center;
-  font-size: 1.1rem;
-  color: #777;
+.title span {
+  color: #ffb300;
 }
 
 .items {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .item {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 1rem;
+  gap: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 1.5rem;
 }
 
-.info h3 {
-  font-weight: 500;
-  margin: 0;
+.image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.info {
+  flex: 1;
+}
+
+.info h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.info p {
+  font-size: 0.9rem;
+  color: #333;
+  margin: 0.2rem 0;
 }
 
 .summary {
-  margin-top: 2rem;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
 }
 
-.submitBtn {
-  margin-top: 1rem;
-  background: linear-gradient(to right, #ffb84d, #ff9900);
-  color: white;
+.total {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.total span {
+  color: #ffb300;
+  font-weight: 800;
+}
+
+.orderButton {
+  background-color: #ffb300;
   border: none;
   padding: 0.9rem 1.5rem;
-  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: black;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.3s ease;
 }
 
-.submitBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(255, 153, 0, 0.4);
+.orderButton:hover {
+  background-color: #ffa000;
 }

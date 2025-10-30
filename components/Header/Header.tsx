@@ -34,12 +34,12 @@ export default function Header() {
                 <Link href="/contact-us">Contact Us</Link>
             </nav>
 
-            {/* כפתור סל הקניות */}
+            {/* cart btn */}
             <div className={styles.cart} onClick={() => setCartOpen(true)}>
                 Cart({totalCount})
             </div>
 
-            {/* מודאל סל הקניות */}
+            {/* cart modal */}
             <CartModal
                 isOpen={isCartOpen}
                 onClose={() => setCartOpen(false)}
