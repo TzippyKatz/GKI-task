@@ -1,14 +1,12 @@
 .checkout {
-  max-width: 900px;
+  max-width: 800px;
   margin: 80px auto;
   padding: 2rem;
   background-color: #fff;
-  color: #000;
   font-family: "Roboto", sans-serif;
 }
 
 .title {
-  text-align: left;
   font-size: 3rem;
   font-weight: 900;
   margin-bottom: 2rem;
@@ -21,20 +19,20 @@
 .items {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .item {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #ddd;
   padding-bottom: 1.5rem;
+  gap: 1rem;
 }
 
 .image {
-  width: 120px;
-  height: 120px;
+  border: 1px solid #eee;
+  border-radius: 4px;
   object-fit: contain;
 }
 
@@ -45,21 +43,43 @@
 .info h2 {
   font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.3rem;
+  color: #222;
+  margin-bottom: 0.5rem;
 }
 
-.info p {
-  font-size: 0.9rem;
-  color: #333;
-  margin: 0.2rem 0;
+.quantityControl {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.5rem 0;
+}
+
+.qtyBtn {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: #222;
+  transition: color 0.2s ease;
+}
+
+.qtyBtn:hover {
+  color: #ffb300;
+}
+
+.price {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111;
 }
 
 .summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 2.5rem;
-  border-top: 1px solid #eee;
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
   padding-top: 1.5rem;
 }
 
@@ -79,12 +99,19 @@
   padding: 0.9rem 1.5rem;
   font-weight: 700;
   font-size: 0.9rem;
-  text-transform: uppercase;
   color: black;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .orderButton:hover {
   background-color: #ffa000;
+}
+
+.empty {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 100px;
+  color: #666;
 }

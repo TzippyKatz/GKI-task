@@ -3,7 +3,7 @@
 import { useCartStore } from "../../app/store/useCartStore";
 import styles from "./CartModal.module.css";
 import Image from "next/image";
-import { useRouter } from "next/navigation"; // 👈 מוסיפים ייבוא של ה-router
+import { useRouter } from "next/navigation";
 
 interface CartModalProps {
   isOpen: boolean;
@@ -11,7 +11,7 @@ interface CartModalProps {
 }
 
 export default function CartModal({ isOpen, onClose }: CartModalProps) {
-  const router = useRouter(); // 👈 יוצרים משתנה router
+  const router = useRouter();
   const products = useCartStore((state) => state.products);
   const removeFromCart = useCartStore((state) => state.removeFromCart);
   const updateQuantity = useCartStore((state) => state.updateQuantity);
@@ -19,15 +19,15 @@ export default function CartModal({ isOpen, onClose }: CartModalProps) {
 
   if (!isOpen) return null;
 
+  //navigate to page
   const handleCheckout = () => {
-    onClose(); // נסגור את המודל
-    router.push("/checkout"); // 👈 ננווט לעמוד התשלום
+    onClose();
+    router.push("/checkout");
   };
 
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <h2 className={styles.title}>Cart</h2>
         <div className={styles.items}>
           {products.length === 0 && <p>Your cart is empty.</p>}
           {products.map((p) => (
@@ -36,7 +36,12 @@ export default function CartModal({ isOpen, onClose }: CartModalProps) {
               <div className={styles.info}>
                 <span className={styles.title}>{p.title}</span>
                 <div className={styles.quantity}>
-                  <button onClick={() => updateQuantity(p.id, p.quantity - 1)}>
+                  <button
+                    onClick={() => {
+                      if (p.quantity > 1) updateQuantity(p.id, p.quantity - 1);
+                      else removeFromCart(p.id);
+                    }}
+                  >
                     -
                   </button>
                   <span>{p.quantity}</span>
