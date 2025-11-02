@@ -61,6 +61,33 @@
   font-weight: bold;
 }
 
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.wishlist,
+.cart {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+}
+
+
 @media (max-width: 768px) {
   .header {
     flex-direction: column;

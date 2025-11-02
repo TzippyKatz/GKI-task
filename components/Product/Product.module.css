@@ -48,7 +48,14 @@
   color: #000;
 }
 
-.product button {
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.addToCart {
   background-color: #ffb400;
   border: none;
   color: #000;
@@ -59,9 +66,22 @@
   margin-top: 8px;
 }
 
-.product button:hover {
+.addToCart:hover {
   background-color: #ff9900;
   transform: translateY(-2px);
+}
+
+.heart {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: gray;
+  margin-left: 8px;
+}
+
+.heart.active {
+  color: red;
 }
 
 @media (max-width: 768px) {
